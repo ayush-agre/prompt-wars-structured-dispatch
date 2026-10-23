@@ -1,0 +1,21 @@
+{
+  "endpoint": "/api/ingest",
+  "request": {
+    "text": "Station 7 reports a pump failure; send maintenance."
+  },
+  "response": {
+    "status": "success",
+    "data": {
+      "title": "Pump failure",
+      "severity_level": "high",
+      "category": "maintenance",
+      "key_entities": ["Station 7"],
+      "confidence_score": 0.95,
+      "action_items": ["Send maintenance"],
+      "reasoning_summary": "Pump failure at Station 7 requires immediate maintenance.",
+      "domain_tags": ["infrastructure", "maintenance"]
+    },
+    "latency_ms": 12.5,
+    "cached": false
+  }
+}

@@ -1,0 +1,14 @@
+backend/.venv/
+backend/UsersAYUSHAppDataLocalTempagent-tmppromptwars-venv/
+backend/.pytest_cache/
+backend/.mypy_cache/
+backend/.ruff_cache/
+backend/.coverage
+backend/coverage.xml
+backend/dist/
+__pycache__/
+*.py[cod]
+.env
+.env.*
+!.env.example
+frontend/node_modules/

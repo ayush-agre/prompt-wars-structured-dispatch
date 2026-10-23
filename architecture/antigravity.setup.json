@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "project": "PromptWars_Vault",
+  "source_of_truth": {
+    "backend_package": "backend/app",
+    "backend_tests": "backend/tests",
+    "database_schema": "database/schema.sql",
+    "frontend_component": "frontend/src/components/IntakeDashboard.tsx",
+    "frontend_contract_gate": "frontend/verify_contract.py",
+    "container": "docker/Dockerfile",
+    "deployment": "docker/deploy.sh"
+  },
+  "commands": {
+    "backend_directory": "backend",
+    "frontend_contract": "python frontend/verify_contract.py",
+    "backend_verification": [
+      "uv lock --check",
+      "uv run --locked --python 3.11 ruff check app tests",
+      "uv run --locked --python 3.11 ruff format --check app tests",
+      "uv run --locked --python 3.11 mypy app tests",
+      "uv run --locked --python 3.11 pytest -q --cov=app --cov-branch --cov-fail-under=100",
+      "uv run --locked --python 3.11 bandit -r app -c pyproject.toml",
+      "uv run --locked --python 3.11 pip-audit --local --progress-spinner off",
+      "uv build"
+    ]
+  }
+}
